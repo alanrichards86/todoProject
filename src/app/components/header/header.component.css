@@ -1,0 +1,15 @@
+.div1, .div2 {
+    width: 100%;
+    height: auto;
+    background: #1e5799; /* Old browsers */
+    background: -moz-linear-gradient(top, #1e5799 7%, #0f75b4 50%, #0f75b4 93%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #1e5799 7%,#0f75b4 50%,#0f75b4 93%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #1e5799 7%,#0f75b4 50%,#0f75b4 93%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#0f75b4',GradientType=0 ); /* IE6-9 */
+}
+
+.ptag1 .ptag2 {
+    text-align: center;    
+    padding-top: 3px;
+    width: 100px;
+}
