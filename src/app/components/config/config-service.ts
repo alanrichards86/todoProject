@@ -9,7 +9,7 @@ export class ConfigService {
     configUrl = 'assests/config.json';
 
     getConfig() {
-        return this.http.get(this.configUrl);
+        return this.http.get<Config>(this.configUrl);
     }
 }
 // This is how the api call should look when calling just the city.   URL/Cith/APPID/MyUniqueKey

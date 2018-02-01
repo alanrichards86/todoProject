@@ -13,6 +13,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigComponent } from './components/config/config.component';
 
+//Service
+import { ConfigService } from './components/config/config-service';
+
 const appRoutes: Routes = [
   {
     path: 'weather',
@@ -45,7 +48,9 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ConfigService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
