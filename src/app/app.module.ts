@@ -9,6 +9,10 @@ import { WeatherComponent } from './components/weather/weather.component';
 import { RouterModule, RouterOutlet, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
+//HTTP
+import { HttpClientModule } from '@angular/common/http';
+import { ConfigComponent } from './components/config/config.component';
+
 const appRoutes: Routes = [
   {
     path: 'weather',
@@ -30,14 +34,16 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     WeatherComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ConfigComponent
   ],
   imports: [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }
     ),
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,4 @@
+{
+    "weatherUrl": "api.openweathermap.org/data/2.5/weather?q=Hurzuf",
+    "defaultApiKey": "8dba29b56eefde52ad1be13b13becda3"
+}
