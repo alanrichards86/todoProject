@@ -4,9 +4,9 @@
 <div class="div2">
 
   <div class="mainBtns-Div">
-    <p class="btns" > <span class="btn1" style="cursor:pointer">Btn1</span>
-    <p class="btns" > <span class="btn2" style="cursor:pointer">Btn2</span>
-    <p class="btns" > <span class="btn3" style="cursor:pointer">Btn3</span>
+    <p class="btns" style="cursor:pointer" (click)="showMe()"> <span class="btn1" style="cursor:pointer" >Btn1</span>
+    <p class="btns" style="cursor:pointer" (click)="wrongPage()" routerLink="/test" routerLinkActive="active" > <span class="btn2" >Btn2</span>
+    <p class="btns" style="cursor:pointer" > <span class="btn3">Btn3</span>
   </div>
 
 </div>

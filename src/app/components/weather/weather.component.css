@@ -1,0 +1,17 @@
+div {
+    height: 600px;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+p {
+    height: 70%;
+    width: 70%;
+    background-color: aquamarine;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -12,4 +12,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  showMe() {
+    console.log('Btn1: Im working');
+  }
+
+  wrongPage() {
+    console.log('Btn2: Im working');
+  }
+
 }
