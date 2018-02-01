@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
+//Service
 import { ConfigService } from './config-service';
+
+//Interface
+import { Config } from '../../config-interface';
+
 
 @Component({
   selector: 'app-config',
@@ -7,7 +13,7 @@ import { ConfigService } from './config-service';
   styleUrls: ['./config.component.css']
 })
 export class ConfigComponent implements OnInit {
-  config: { weatherUrl: any; };
+  config: Config;
 
 
 
@@ -17,10 +23,11 @@ export class ConfigComponent implements OnInit {
 
   ngOnInit() {
   }
+
   showConfig() {
     this.configService.getConfig()
-      .subscribe(data => this.config = {
-        weatherUrl: data['weatherUrl']
-      });
+    .subscribe(data => this.config = { ...data});
   }
+  
+
 }

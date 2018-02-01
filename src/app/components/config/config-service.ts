@@ -1,6 +1,14 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http/src/client';
+
+//Http
+import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+
+//Interface 
+import { Config } from '../../config-interface';
+
+//Observable
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ConfigService {
@@ -10,6 +18,10 @@ export class ConfigService {
 
     getConfig() {
         return this.http.get<Config>(this.configUrl);
+    }
+    getConfigResponse(): Observable<HttpResponse<Config>> {
+        return this.http.get<Config>(
+            this.configUrl, { observe: 'response' });
     }
 }
 // This is how the api call should look when calling just the city.   URL/Cith/APPID/MyUniqueKey
