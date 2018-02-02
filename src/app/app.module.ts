@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//Components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { WeatherComponent } from './components/weather/weather.component';
@@ -11,10 +12,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 
 //HTTP
 import { HttpClientModule } from '@angular/common/http';
-import { ConfigComponent } from './components/config/config.component';
 
-//Service
-import { ConfigService } from './components/config/config-service';
+//FormsModule
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   {
@@ -37,8 +37,7 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     WeatherComponent,
-    PageNotFoundComponent,
-    ConfigComponent
+    PageNotFoundComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -46,11 +45,10 @@ const appRoutes: Routes = [
       { enableTracing: true }
     ),
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [
-    ConfigService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
