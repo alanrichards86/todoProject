@@ -9,13 +9,14 @@
   </div>
 
   <div class="inputDiv"> 
-    <input type="text" class="cityName" [(ngModel)]=cityName>
+    <input type="text" class="cityInput" [(ngModel)]=cityInput>
     <button (click)="getCity()" class="getCity-Btn">Get City</button>
   </div>
   <div class="displayDiv">
-    <h3>{{clouds}}</h3>
-    <br>
-    <h2>{{windSpeed}}</h2>
+    <h3>Country: {{countryName}}</h3>
+    <h3>CityName: {{cityName}}</h3>
+    <h3>Clouds: {{clouds}}</h3>
+    <h3>Population: {{population}}</h3>
   </div>
 
 
