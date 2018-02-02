@@ -13,17 +13,20 @@ export class WeatherComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  cityName = '';
+  public cityName = '';
+  public clouds = '';
+  public windSpeed = '';
 
   ngOnInit() {
   }
   
   getCity() {
-    this.http.get("http://api.openweathermap.org/data/2.5/forecast?id=" + this.cityName +  "&APPID=8dba29b56eefde52ad1be13b13becda3")
+    this.http.get("http://api.openweathermap.org/data/2.5/forecast?q=" + this.cityName +  "&APPID=8dba29b56eefde52ad1be13b13becda3")
     .subscribe(
       (res: Response) => {
-        const weatherCity = res;
+        const weatherCity = res.json();
         console.log(weatherCity);
+        this.clouds = weatherCity.weather[0].description;
       }
     )
   }

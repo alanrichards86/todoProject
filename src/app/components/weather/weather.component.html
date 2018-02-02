@@ -2,16 +2,21 @@
 
 <div class="mainDiv">
 
-<div class="h1Div">
-  <h1>  
-    Weather Fun !
-  </h1>
-</div>
+  <div class="h1Div">
+    <h1>  
+      Weather Fun !
+    </h1>
+  </div>
 
-<div class="inputDiv"> 
-  <input type="text" class="cityName" [(ngModel)]=cityName>
-  <button (click)="getCity()" class="getCity-Btn">Get City</button>
-</div>
+  <div class="inputDiv"> 
+    <input type="text" class="cityName" [(ngModel)]=cityName>
+    <button (click)="getCity()" class="getCity-Btn">Get City</button>
+  </div>
+  <div class="displayDiv">
+    <h3>{{clouds}}</h3>
+    <br>
+    <h2>{{windSpeed}}</h2>
+  </div>
 
 
 

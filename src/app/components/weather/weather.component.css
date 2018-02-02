@@ -1,9 +1,16 @@
-div {
+.mainDiv {
     height: 600px;
-    background-color: aqua;
     display: flex;
     justify-content: center;
-    align-items: center
+    flex-direction: column;
+    align-items: center;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00ffff+0,00aaaa+51,189b9b+59,066868+100 */
+    background: #00ffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #00ffff 0%, #00aaaa 51%, #189b9b 59%, #066868 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #00ffff 0%,#00aaaa 51%,#189b9b 59%,#066868 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #00ffff 0%,#00aaaa 51%,#189b9b 59%,#066868 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffff', endColorstr='#066868',GradientType=0 ); /* IE6-9 */
 }
 
 
