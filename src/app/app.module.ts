@@ -11,7 +11,7 @@ import { RouterModule, RouterOutlet, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 //HTTP
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 //FormsModule
 import { FormsModule } from '@angular/forms';
@@ -42,7 +42,7 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      // { enableTracing: true } // uncomment for debugging purposes
+      { enableTracing: false } // Make 'true' for debugging purposes
     ),
     BrowserModule,
     HttpClientModule,
