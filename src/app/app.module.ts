@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//Ng-Bootstrap
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 //Components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -46,7 +49,8 @@ const appRoutes: Routes = [
     ),
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
