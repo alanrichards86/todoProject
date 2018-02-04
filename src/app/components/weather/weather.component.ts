@@ -23,6 +23,8 @@ export class WeatherComponent implements OnInit {
   
   constructor(private http: HttpClient) { }
 
+  locationButtonStatus = true;
+
   ngOnInit() {
   }
   
@@ -39,6 +41,17 @@ export class WeatherComponent implements OnInit {
       }
     )
   }
+  buttonStatus() {
+    let count = 0
+    if(this.locationButtonStatus === true && count === 0){
+      this.locationButtonStatus = false;
+      count++
+      console.log(count);
+    }else {
+      console.log('Button enabled already');
+      return;
+    }
+  }  
 }
 
 //      FOR LOOP FOR LOOPING THROUGH
