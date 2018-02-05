@@ -13,4 +13,14 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffff', endColorstr='#066868',GradientType=0 ); /* IE6-9 */
 }
 
+.getCity-Btn:disabled {
+    background-color: grey;
+    border-color: grey;
+    cursor: not-allowed;
+}
+
+.displayDiv {
+    padding-top: 5%;
+}
+
 
