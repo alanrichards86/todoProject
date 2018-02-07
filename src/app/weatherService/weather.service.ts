@@ -6,13 +6,11 @@ import { Observable } from "rxjs/Observable";
 export class WeatherService {
 
     constructor(private http: HttpClient) {
-        this.getJSON().subscribe(data => {
-            console.log(data);
-        });
+        var obj;
+        this.getJson().subscribe(data => obj = data, error => console.log(error));
     }
 
-    public getJSON(): Observable<any> {
-        return this.http.get('../location-list/city.list.json');
+    public getJson(): Observable<any> {
+        return this.http.get("city-list.json"); 
     }
-
 }

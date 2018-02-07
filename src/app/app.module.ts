@@ -19,6 +19,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 //FormsModule
 import { FormsModule } from '@angular/forms';
 
+//Service
+import { WeatherService } from './weatherService/weather.service';
+
 const appRoutes: Routes = [
   {
     path: 'weather',
@@ -52,7 +55,7 @@ const appRoutes: Routes = [
     FormsModule,
     NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

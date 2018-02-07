@@ -5,18 +5,20 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Response } from '@angular/http';
 
 //Service
-import { WeatherService } from './weather.service';
+import { WeatherService } from '../../weatherService/weather.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.scss'],
-  providers: [WeatherService]
+  providers: []
 })
 
 
 export class WeatherComponent implements OnInit {
 
+  private weatherJSON: any;
   private weatherHolder: any;
   public cityInput: string = '';
   public cityName: string = '';
@@ -25,14 +27,19 @@ export class WeatherComponent implements OnInit {
   public population: string = '';
   public windSpeed: string = '';
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private weatherService: WeatherService) {
+   }
 
   locationButtonStatus = true;
 
   ngOnInit() {
-    
+    this.weatherService.getJson().subscribe(data => {
+      console.log(data);
+    })
   }
+
   
+
   getCity() {
     this.http.get("http://api.openweathermap.org/data/2.5/forecast?q=" + this.cityInput +  "&APPID=8dba29b56eefde52ad1be13b13becda3")
     .subscribe(
