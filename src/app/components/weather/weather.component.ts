@@ -23,6 +23,8 @@ export class WeatherComponent implements OnInit {
   
   constructor(private http: HttpClient) { }
 
+  locationButtonStatus = true;
+
   ngOnInit() {
   }
   
@@ -31,14 +33,29 @@ export class WeatherComponent implements OnInit {
     .subscribe(
       (res: Response) => {
         this.weatherHolder = res;
-        console.log(this.weatherHolder);
-        this.cityName = this.weatherHolder.city.name;
-        this.countryName = this.weatherHolder.city.country;
-        this.clouds = this.weatherHolder.list[0].weather[0].description;
-        this.population = this.weatherHolder.city.population;
+        return this.assignWeatherInfo(this.weatherHolder);
       }
-    )
+    )  
   }
+
+
+  assignWeatherInfo(info) {
+    console.log(info);
+    this.cityName = info.city.name;
+    this.countryName = info.city.country;
+    this.clouds = info.list[0].weather[0].description;
+    this.population = info.city.population;
+  }
+
+  buttonStatus() {
+    let count = 0
+    if(this.locationButtonStatus === true && count === 0){
+      this.locationButtonStatus = false;
+      count++;
+    }else {
+      return;
+    }
+  }  
 }
 
 //      FOR LOOP FOR LOOPING THROUGH

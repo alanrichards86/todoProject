@@ -1,5 +1,5 @@
 .mainDiv {
-    height: 600px;
+    height: 800px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -11,6 +11,16 @@
     background: -webkit-linear-gradient(top, #00ffff 0%,#00aaaa 51%,#189b9b 59%,#066868 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, #00ffff 0%,#00aaaa 51%,#189b9b 59%,#066868 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffff', endColorstr='#066868',GradientType=0 ); /* IE6-9 */
+}
+
+.getCity-Btn:disabled {
+    background-color: grey;
+    border-color: grey;
+    cursor: not-allowed;
+}
+
+.displayDiv {
+    padding-top: 5%;
 }
 
 
