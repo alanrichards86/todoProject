@@ -3,12 +3,15 @@ import { Component, OnInit, NgModule } from '@angular/core';
 //Http
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Response } from '@angular/http';
+
+//Service
 import { WeatherService } from './weather.service';
 
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
-  styleUrls: ['./weather.component.scss']
+  styleUrls: ['./weather.component.scss'],
+  providers: [WeatherService]
 })
 
 
