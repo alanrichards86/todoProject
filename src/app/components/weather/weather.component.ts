@@ -3,6 +3,7 @@ import { Component, OnInit, NgModule } from '@angular/core';
 //Http
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Response } from '@angular/http';
+import { WeatherService } from './weather.service';
 
 @Component({
   selector: 'app-weather',
@@ -26,6 +27,7 @@ export class WeatherComponent implements OnInit {
   locationButtonStatus = true;
 
   ngOnInit() {
+    
   }
   
   getCity() {
