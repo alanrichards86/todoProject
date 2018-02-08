@@ -10,9 +10,15 @@
 
   <div class="searchDiv">
     <div class="inputDiv"> 
-      <form>
-        <input type="text" class="cityInput" (click)="buttonStatus()" [(ngModel)]=cityInput [ngModelOptions]="{standalone:true}">
-        <button [disabled]=locationButtonStatus (click)="getCity()" class="btn btn-primary getCity-Btn">Get City</button>
+      <form (ngSubmit)="getCity(formStats)" #formStats="ngForm">
+        <label for="city"></label>
+        <input id="city" class="form-control" 
+          type="text" 
+          class="cityInput" 
+          (click)="buttonStatus()"
+          required
+          >
+        <button type="submit" [disabled]=locationButtonStatus class="btn btn-primary getCity-Btn">Get City</button>
       </form>  
     </div>
     <div class="displayDiv">

@@ -8,6 +8,14 @@ import { Response } from '@angular/http';
 import { WeatherService } from '../../weatherService/weather.service';
 import { Observable } from 'rxjs/Observable';
 
+//Forms
+import { FormControl, FormGroup } from '@angular/forms/src/model';
+import { NgForm } from '@angular/forms';
+import { NgControl } from '@angular/forms/src/directives/ng_control';
+
+
+
+
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
@@ -20,7 +28,6 @@ export class WeatherComponent implements OnInit {
 
   private weatherJSON: any;
   private weatherHolder: any;
-  public cityInput: string = '';
   public cityName: string = '';
   public clouds: string = '';
   public countryName: string = '';
@@ -33,21 +40,22 @@ export class WeatherComponent implements OnInit {
   locationButtonStatus = true;
 
   ngOnInit() {
-    this.weatherService.getJson().subscribe(data => {
-      console.log(data);
-    })
   }
 
   
 
-  getCity() {
-    this.http.get("http://api.openweathermap.org/data/2.5/forecast?q=" + this.cityInput +  "&APPID=8dba29b56eefde52ad1be13b13becda3")
-    .subscribe(
-      (res: Response) => {
-        this.weatherHolder = res;
-        return this.assignWeatherInfo(this.weatherHolder);
-      }
-    )  
+  getCity(form: FormGroup) {
+    
+    // this.weatherService.findWeatherData(form.value.location);
+    console.log(form);
+    
+    // this.http.get("http://api.openweathermap.org/data/2.5/forecast?q=" + this.cityInput +  "&APPID=8dba29b56eefde52ad1be13b13becda3")
+    // .subscribe(
+    //   (res: Response) => {
+    //     this.weatherHolder = res;
+        // return this.assignWeatherInfo(this.weatherHolder);
+      // }
+    // )  
   }
 
 
@@ -59,7 +67,8 @@ export class WeatherComponent implements OnInit {
     this.population = info.city.population;
   }
 
-  buttonStatus() {
+  buttonStatus(f) {
+    console.log(f);
     let count = 0
     if(this.locationButtonStatus === true && count === 0){
       this.locationButtonStatus = false;
