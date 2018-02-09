@@ -12,6 +12,7 @@ import { Observable } from 'rxjs/Observable';
 import { FormControl, FormGroup } from '@angular/forms/src/model';
 import { NgForm } from '@angular/forms';
 import { NgControl } from '@angular/forms/src/directives/ng_control';
+import { NgModel } from '@angular/forms/src/directives/ng_model';
 
 
 
@@ -28,7 +29,7 @@ export class WeatherComponent implements OnInit {
 
   private weatherJSON: any;
   private weatherHolder: any;
-  public cityName: string = '';
+  public cityData: string = '';
   public clouds: string = '';
   public countryName: string = '';
   public population: string = '';
@@ -44,31 +45,21 @@ export class WeatherComponent implements OnInit {
 
   
 
-  getCity(form: FormGroup) {
-    
-    // this.weatherService.findWeatherData(form.value.location);
-    console.log(form);
-    
-    // this.http.get("http://api.openweathermap.org/data/2.5/forecast?q=" + this.cityInput +  "&APPID=8dba29b56eefde52ad1be13b13becda3")
-    // .subscribe(
-    //   (res: Response) => {
-    //     this.weatherHolder = res;
-        // return this.assignWeatherInfo(this.weatherHolder);
-      // }
-    // )  
+  getCity(form: NgModel) {
+    console.log(form.value);
+    this.weatherService.findWeatherData(form.value);
   }
 
 
   assignWeatherInfo(info) {
     console.log(info);
-    this.cityName = info.city.name;
+    // this.cityName = info.city.name;
     this.countryName = info.city.country;
     this.clouds = info.list[0].weather[0].description;
     this.population = info.city.population;
   }
 
-  buttonStatus(f) {
-    console.log(f);
+  buttonStatus() {
     let count = 0
     if(this.locationButtonStatus === true && count === 0){
       this.locationButtonStatus = false;
