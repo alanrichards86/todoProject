@@ -27,8 +27,7 @@ import { NgModel } from '@angular/forms/src/directives/ng_model';
 
 export class WeatherComponent implements OnInit {
 
-  private weatherJSON: any;
-  private weatherHolder: any;
+  public weatherData: any;
   public cityData: string = '';
   public clouds: string = '';
   public countryName: string = '';
@@ -45,18 +44,21 @@ export class WeatherComponent implements OnInit {
 
   
 
-  getCity(form: NgModel) {
-    console.log(form.value);
-    this.weatherService.findWeatherData(form.value);
+  onSubmit(form: NgModel) {
+    console.log(form);
+    this.weatherService.findWeatherData(form.value)
+      .subscribe((res: Response) => {
+        this.weatherData = res;
+          console.log(this.weatherData);            
+    });
   }
 
-
-  assignWeatherInfo(info) {
-    console.log(info);
+    assignWeatherInfo(weatherInfo) {
+    console.log(weatherInfo);
     // this.cityName = info.city.name;
-    this.countryName = info.city.country;
-    this.clouds = info.list[0].weather[0].description;
-    this.population = info.city.population;
+    // this.countryName = info.city.country;
+    // this.clouds = info.list[0].weather[0].description;
+    // this.population = info.city.population;
   }
 
   buttonStatus() {
