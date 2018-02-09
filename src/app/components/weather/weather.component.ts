@@ -28,11 +28,14 @@ import { NgModel } from '@angular/forms/src/directives/ng_model';
 export class WeatherComponent implements OnInit {
 
   public weatherData: any;
-  public cityData: string = '';
-  public clouds: string = '';
-  public countryName: string = '';
-  public population: string = '';
-  public windSpeed: string = '';
+  public cityData: object;
+  // = [{
+  //   cityName: this.cityData.,
+  //   clouds: '',
+  //   countryName: '',
+  //   population: '',
+  //   windSpeed: ''
+  // }]
   
   constructor(private http: HttpClient, private weatherService: WeatherService) {
    }
@@ -50,12 +53,21 @@ export class WeatherComponent implements OnInit {
       .subscribe((res: Response) => {
         this.weatherData = res;
           console.log(this.weatherData);            
+        return this.assignWeatherInfo(this.weatherData);
     });
   }
 
-    assignWeatherInfo(weatherInfo) {
-    console.log(weatherInfo);
-    // this.cityName = info.city.name;
+    assignWeatherInfo(weath) {
+    console.log(weath);
+    this.cityData = [{
+      cityName: weath.city.name,
+      clouds: '',
+      countryName: weath.city.country,
+      population: weath.city.population,
+      windSpeed: ''
+    }]
+    console.log(this.cityData);
+    // this.cityData = weath;
     // this.countryName = info.city.country;
     // this.clouds = info.list[0].weather[0].description;
     // this.population = info.city.population;

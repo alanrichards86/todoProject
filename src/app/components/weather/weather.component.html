@@ -18,10 +18,12 @@
       </form>  
     </div>
     <div class="displayDiv">
-      <h3>Country: {{countryName}}</h3>
-      <h3>CityName: {{cityName}}</h3>
-      <h3>Clouds: {{clouds}}</h3>
-      <h3>Population: {{population}}</h3>
+      <ul class="weatherList" *ngFor="let weather of cityData">
+        <li>Country: {{weather.countryName}}</li>
+        <li>CityName: {{weather.cityName}}</li>
+        <li>Clouds: {{clouds}}</li>
+        <li>Population: {{weather.population}}</li>
+      </ul>
     </div>
   </div>
 
