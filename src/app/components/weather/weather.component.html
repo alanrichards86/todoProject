@@ -10,16 +10,20 @@
 
   <div class="searchDiv">
     <div class="inputDiv"> 
-      <form>
-        <input type="text" class="cityInput" (click)="buttonStatus()" [(ngModel)]=cityInput [ngModelOptions]="{standalone:true}">
-        <button [disabled]=locationButtonStatus (click)="getCity()" class="btn btn-primary getCity-Btn">Get City</button>
+      <form (ngSubmit)="onSubmit(ctrl)">
+        <label for="city"></label>
+        <input id="city" class="form-control" [(ngModel)]="cityName" #ctrl="ngModel" type="text" class="cityInput" 
+        (click)="buttonStatus()" required [ngModelOptions]="{standalone: true}">
+        <button type="submit" [disabled]=locationButtonStatus class="btn btn-primary getCity-Btn">Get City</button>
       </form>  
     </div>
     <div class="displayDiv">
-      <h3>Country: {{countryName}}</h3>
-      <h3>CityName: {{cityName}}</h3>
-      <h3>Clouds: {{clouds}}</h3>
-      <h3>Population: {{population}}</h3>
+      <ul class="weatherList">
+        <li>Country: {{weatherData.city.country}}</li>
+        <li>CityName: {{weatherData.city.name}}</li>
+        <li>Clouds: {{weatherData.list[0].weather[0].description}}</li>
+        <li>Population: {{weatherData.city.population}}</li>
+      </ul>
     </div>
   </div>
 
