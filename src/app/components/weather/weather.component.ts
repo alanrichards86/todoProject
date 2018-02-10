@@ -53,25 +53,10 @@ export class WeatherComponent implements OnInit {
       .subscribe((res: Response) => {
         this.weatherData = res;
           console.log(this.weatherData);            
-        return this.assignWeatherInfo(this.weatherData);
-    });
-  }
+        });
+        return;
+      }
 
-    assignWeatherInfo(weath) {
-    console.log(weath);
-    this.cityData = [{
-      cityName: weath.city.name,
-      clouds: '',
-      countryName: weath.city.country,
-      population: weath.city.population,
-      windSpeed: ''
-    }]
-    console.log(this.cityData);
-    // this.cityData = weath;
-    // this.countryName = info.city.country;
-    // this.clouds = info.list[0].weather[0].description;
-    // this.population = info.city.population;
-  }
 
   buttonStatus() {
     let count = 0

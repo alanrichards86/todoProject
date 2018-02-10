@@ -10,6 +10,5 @@ public weatherHolder;
     }
     findWeatherData(cityInput: string) {
         return this.http.get("http://api.openweathermap.org/data/2.5/forecast?q=" + cityInput + "&APPID=8dba29b56eefde52ad1be13b13becda3&units=imperial");
-
     }
 }
