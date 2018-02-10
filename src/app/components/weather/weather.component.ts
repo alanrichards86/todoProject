@@ -29,13 +29,6 @@ export class WeatherComponent implements OnInit {
 
   public weatherData: any;
   public cityData: object;
-  // = [{
-  //   cityName: this.cityData.,
-  //   clouds: '',
-  //   countryName: '',
-  //   population: '',
-  //   windSpeed: ''
-  // }]
   
   constructor(private http: HttpClient, private weatherService: WeatherService) {
    }
@@ -44,8 +37,6 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  
 
   onSubmit(form: NgModel) {
     console.log(form);
@@ -57,7 +48,6 @@ export class WeatherComponent implements OnInit {
         return;
       }
 
-
   buttonStatus() {
     let count = 0
     if(this.locationButtonStatus === true && count === 0){
@@ -68,9 +58,3 @@ export class WeatherComponent implements OnInit {
     }
   }  
 }
-
-//      FOR LOOP FOR LOOPING THROUGH
-// for (let n of this.weatherHolder.list) {
-        //   console.log(`This is N: ${JSON.stringify(n)}`);
-        //   console.log(n.main.humidity);
-        // }
