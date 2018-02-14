@@ -1,3 +1,5 @@
+@import '../../../scss/styles.scss';
+
 .mainDiv {
     height: 800px;
     display: flex;
@@ -5,17 +7,22 @@
     flex-direction: column;
     align-items: center;
 
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00ffff+0,00aaaa+51,189b9b+59,066868+100 */
-    background: #00ffff; /* Old browsers */
-    background: -moz-linear-gradient(top, #00ffff 0%, #00aaaa 51%, #189b9b 59%, #066868 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #00ffff 0%,#00aaaa 51%,#189b9b 59%,#066868 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #00ffff 0%,#00aaaa 51%,#189b9b 59%,#066868 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffff', endColorstr='#066868',GradientType=0 ); /* IE6-9 */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00fcfb+1,00c8c8+100 */
+background: #00fcfb; /* Old browsers */
+background: -moz-linear-gradient(top, #00fcfb 1%, #00c8c8 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #00fcfb 1%,#00c8c8 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #00fcfb 1%,#008383 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00fcfb', endColorstr='#00c8c8',GradientType=0 ); /* IE6-9 */
+}
+
+.getCity-Btn {
+    background: $mainSecondary;
+    color: $secondaryText;
 }
 
 .getCity-Btn:disabled {
-    background-color: grey;
-    border-color: grey;
+    background-color: $secondaryLight;
+    border-color: $secondaryLight;
     cursor: not-allowed;
 }
 
