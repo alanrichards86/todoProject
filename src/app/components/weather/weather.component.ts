@@ -13,6 +13,7 @@ import { FormControl, FormGroup } from '@angular/forms/src/model';
 import { NgForm } from '@angular/forms';
 import { NgControl } from '@angular/forms/src/directives/ng_control';
 import { NgModel } from '@angular/forms/src/directives/ng_model';
+import { Subject } from 'rxjs/Subject';
 
 
 
@@ -29,7 +30,9 @@ export class WeatherComponent implements OnInit {
 
   public weatherData: any;
   public cityData: object;
-  
+
+  private searchInfo = new Subject<string>();
+
   constructor(private http: HttpClient, private weatherService: WeatherService) {
    }
 
@@ -38,9 +41,9 @@ export class WeatherComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(form: NgModel) {
+  onSubmit(form) {
     console.log(form);
-    this.weatherService.findWeatherData(form.value)
+    this.weatherService.findWeatherData(form)
       .subscribe((res: Response) => {
         this.weatherData = res;
           console.log(this.weatherData);            
@@ -56,5 +59,10 @@ export class WeatherComponent implements OnInit {
     }else {
       return;
     }
-  }  
+  }
+  
+  findLocation(locationName: string) {
+    console.log('This is my input info:', locationName);
+  }
+
 }
