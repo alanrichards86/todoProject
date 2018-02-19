@@ -29,7 +29,10 @@ import { Subject } from 'rxjs/Subject';
 export class WeatherComponent implements OnInit {
 
   public weatherData: any = "";
+  public country: string = "";
   public city: string = "";
+  public clouds: string = "";
+  public population: string = "";
   public cityData: object;
 
   private searchInfo = new Subject<string>();
@@ -47,7 +50,11 @@ export class WeatherComponent implements OnInit {
     this.weatherService.findWeatherData(form)
       .subscribe((res: Response) => {
         this.weatherData = res;
-          console.log(this.weatherData);            
+          console.log(this.weatherData);   
+        this.country = this.weatherData.city.country;
+        this.city = this.weatherData.city.name;
+        this.clouds = this.weatherData.list[0].weather[0].description;
+        this.population = this.weatherData.city.population;         
         });
     return this.weatherData;
       }
