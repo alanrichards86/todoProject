@@ -28,7 +28,8 @@ import { Subject } from 'rxjs/Subject';
 
 export class WeatherComponent implements OnInit {
 
-  public weatherData: any;
+  public weatherData: any = "";
+  public city: string = "";
   public cityData: object;
 
   private searchInfo = new Subject<string>();
@@ -48,7 +49,7 @@ export class WeatherComponent implements OnInit {
         this.weatherData = res;
           console.log(this.weatherData);            
         });
-        return;
+    return this.weatherData;
       }
 
   buttonStatus() {
