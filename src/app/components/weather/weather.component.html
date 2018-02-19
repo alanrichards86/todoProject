@@ -8,17 +8,24 @@
     </h1>
   </div>
 
-  <div class="inputDiv"> 
-    <input type="text" class="cityInput" [(ngModel)]=cityInput>
-    <button (click)="getCity()" class="btn btn-primary getCity-Btn">Get City</button>
+  <div class="searchDiv">
+    <div class="inputDiv"> 
+      <form (ngSubmit)="onSubmit(input.value)">
+        <label for="city"></label>
+        <input id="city" class="form-control" [(ngModel)]="cityName" type="text" class="cityInput"
+        (click)="buttonStatus()" (input)="findLocation(input.value)" #input [ngModelOptions]="{standalone: true}">
+        <button type="submit" [disabled]=locationButtonStatus class="btn btn-primary getCity-Btn">Get City</button>
+      </form>  
+    </div>
+    <div class="displayDiv">
+      <ul class="weatherList">
+        <li>Country: {{country}}</li>
+        <li>CityName: {{city}}</li>
+        <li>Clouds: {{clouds}}</li>
+        <li>Population: {{population}}</li>
+      </ul>
+    </div>
   </div>
-  <div class="displayDiv">
-    <h3>Country: {{countryName}}</h3>
-    <h3>CityName: {{cityName}}</h3>
-    <h3>Clouds: {{clouds}}</h3>
-    <h3>Population: {{population}}</h3>
-  </div>
-
 
 
 </div>

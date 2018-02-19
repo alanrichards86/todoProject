@@ -4,45 +4,73 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Response } from '@angular/http';
 
+//Service
+import { WeatherService } from '../../weatherService/weather.service';
+import { Observable } from 'rxjs/Observable';
+
+//Forms
+import { FormControl, FormGroup } from '@angular/forms/src/model';
+import { NgForm } from '@angular/forms';
+import { NgControl } from '@angular/forms/src/directives/ng_control';
+import { NgModel } from '@angular/forms/src/directives/ng_model';
+import { Subject } from 'rxjs/Subject';
+
+
+
+
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
-  styleUrls: ['./weather.component.scss']
+  styleUrls: ['./weather.component.scss'],
+  providers: []
 })
 
 
 export class WeatherComponent implements OnInit {
 
-  private weatherHolder: any;
-  public cityInput: string = '';
-  public cityName: string = '';
-  public clouds: string = '';
-  public countryName: string = '';
-  public population: string = '';
-  public windSpeed: string = '';
-  
-  constructor(private http: HttpClient) { }
+  public weatherData: any = "";
+  public country: string = "";
+  public city: string = "";
+  public clouds: string = "";
+  public population: string = "";
+  public cityData: object;
+
+  private searchInfo = new Subject<string>();
+
+  constructor(private http: HttpClient, private weatherService: WeatherService) {
+   }
+
+  locationButtonStatus = true;
 
   ngOnInit() {
   }
-  
-  getCity() {
-    this.http.get("http://api.openweathermap.org/data/2.5/forecast?q=" + this.cityInput +  "&APPID=8dba29b56eefde52ad1be13b13becda3")
-    .subscribe(
-      (res: Response) => {
-        this.weatherHolder = res;
-        console.log(this.weatherHolder);
-        this.cityName = this.weatherHolder.city.name;
-        this.countryName = this.weatherHolder.city.country;
-        this.clouds = this.weatherHolder.list[0].weather[0].description;
-        this.population = this.weatherHolder.city.population;
-      }
-    )
-  }
-}
 
-//      FOR LOOP FOR LOOPING THROUGH
-// for (let n of this.weatherHolder.list) {
-        //   console.log(`This is N: ${JSON.stringify(n)}`);
-        //   console.log(n.main.humidity);
-        // }
+  onSubmit(form) {
+    console.log(form);
+    this.weatherService.findWeatherData(form)
+      .subscribe((res: Response) => {
+        this.weatherData = res;
+          console.log(this.weatherData);   
+        this.country = this.weatherData.city.country;
+        this.city = this.weatherData.city.name;
+        this.clouds = this.weatherData.list[0].weather[0].description;
+        this.population = this.weatherData.city.population;         
+        });
+    return this.weatherData;
+      }
+
+  buttonStatus() {
+    let count = 0
+    if(this.locationButtonStatus === true && count === 0){
+      this.locationButtonStatus = false;
+      count++;
+    }else {
+      return;
+    }
+  }
+  
+  findLocation(locationName: string) {
+    console.log('This is my input info:', locationName);
+  }
+
+}
