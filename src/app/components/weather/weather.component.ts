@@ -16,7 +16,6 @@ import { NgModel } from '@angular/forms/src/directives/ng_model';
 //RxJs
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/switchMap';
-import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Observable';
 
 
