@@ -6,15 +6,18 @@ import { Response } from '@angular/http';
 
 //Service
 import { WeatherService } from '../../weatherService/weather.service';
-import { Observable } from 'rxjs/Observable';
 
 //Forms
 import { FormControl, FormGroup } from '@angular/forms/src/model';
 import { NgForm } from '@angular/forms';
 import { NgControl } from '@angular/forms/src/directives/ng_control';
 import { NgModel } from '@angular/forms/src/directives/ng_model';
-import { Subject } from 'rxjs/Subject';
 
+//RxJs
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/switchMap';
+import { of } from 'rxjs/observable/of';
+import { Observable } from 'rxjs/Observable';
 
 
 
@@ -43,6 +46,7 @@ export class WeatherComponent implements OnInit {
   locationButtonStatus = true;
 
   ngOnInit() {
+    this.searchInfo.switchMap()
   }
 
   onSubmit(form) {
@@ -70,7 +74,8 @@ export class WeatherComponent implements OnInit {
   }
   
   findLocation(locationName: string) {
-    console.log('This is my input info:', locationName);
+    this.searchInfo
+      .next(locationName);
   }
 
 }
