@@ -46,10 +46,14 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit() {
     this.searchInfo
-      .switchMap((input:string) => this.weatherService.findWeatherData(input))
-        .subscribe(
-          data => console.log(data)
-        );
+      .subscribe(
+        data => console.log(data)
+      );
+
+      // .switchMap((input:string) => this.weatherService.findWeatherData(input))
+      //   .subscribe(
+      //     data => console.log(data)
+      //   );
   }
 
   onSubmit(form) {
