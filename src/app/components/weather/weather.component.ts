@@ -45,7 +45,11 @@ export class WeatherComponent implements OnInit {
   locationButtonStatus = true;
 
   ngOnInit() {
-    this.searchInfo.switchMap()
+    this.searchInfo
+      .switchMap((input:string) => this.weatherService.findWeatherData(input))
+        .subscribe(
+          data => console.log(data)
+        );
   }
 
   onSubmit(form) {
