@@ -28,14 +28,18 @@ import 'rxjs/add/operator/switchMap';
 })
 
 
+//        This is how I will assing my weather information after I get the app situated
+// class MyWeather {
+//   public weatherData: any = "";
+//   public country: string = "";
+//   public city: string = "";
+//   public clouds: string = "";
+//   public population: string = "";
+//   public cityData: object;
+// }
+
 export class WeatherComponent implements OnInit {
 
-  public weatherData: any = "";
-  public country: string = "";
-  public city: string = "";
-  public clouds: string = "";
-  public population: string = "";
-  public cityData: object;
 
   private searchInfo = new Subject<string>();
 
