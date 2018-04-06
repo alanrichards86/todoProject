@@ -1,6 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
 
+import { WeatherItem } from './weather-item';
+
 @Component ({
     selector: 'app-weather-item',
     templateUrl: './weather-item.component.html',
@@ -8,6 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class WeatherItemComponent implements OnInit {
+
+weatherItem: WeatherItem;
+
+constructor () {}
 
     ngOnInit() {
 
