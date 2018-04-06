@@ -1,34 +1,34 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 
-//Http
+// Http
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Response } from '@angular/http';
 
-//Service
+// Service
 import { WeatherService } from '../../weatherService/weather.service';
 
-//Forms
+// Forms
 import { FormControl, FormGroup } from '@angular/forms/src/model';
 import { NgForm } from '@angular/forms';
 import { NgControl } from '@angular/forms/src/directives/ng_control';
 import { NgModel } from '@angular/forms/src/directives/ng_model';
 
-//RxJs
+// RxJs
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
-
+// Components
+import { WeatherItemComponent } from './weather-item/weather-item.component';
 
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.scss'],
-  providers: []
 })
 
 
-//        This is how I will assing my weather information after I get the app situated
+//        This is how I will asign my weather information after I get the app situated
 // class MyWeather {
 //   public weatherData: any = "";
 //   public country: string = "";
@@ -40,6 +40,12 @@ import 'rxjs/add/operator/switchMap';
 
 export class WeatherComponent implements OnInit {
 
+  public weatherData: any = '';
+  public country = '';
+  public city = '';
+  public clouds = '';
+  public population = '';
+  public cityData: object;
 
   private searchInfo = new Subject<string>();
 
@@ -53,11 +59,6 @@ export class WeatherComponent implements OnInit {
       .subscribe(
         data => console.log(data)
       );
-
-      // .switchMap((input:string) => this.weatherService.findWeatherData(input))
-      //   .subscribe(
-      //     data => console.log(data)
-      //   );
   }
 
   onSubmit(form) {
@@ -65,28 +66,22 @@ export class WeatherComponent implements OnInit {
     this.weatherService.findWeatherData(form)
       .subscribe((res: Response) => {
         this.weatherData = res;
-          console.log(this.weatherData);   
-        this.country = this.weatherData.city.country;
-        this.city = this.weatherData.city.name;
-        this.clouds = this.weatherData.list[0].weather[0].description;
-        this.population = this.weatherData.city.population;         
+        //   console.log(this.weatherData);
+        // this.country = this.weatherData.city.country;
+        // this.city = this.weatherData.city.name;
+        // this.clouds = this.weatherData.list[0].weather[0].description;
+        // this.population = this.weatherData.city.population;
         });
     return this.weatherData;
       }
 
   buttonStatus() {
-    let count = 0
-    if(this.locationButtonStatus === true && count === 0){
+    let count = 0;
+    if (this.locationButtonStatus === true && count === 0) {
       this.locationButtonStatus = false;
       count++;
     }else {
       return;
     }
   }
-  
-  findLocation(locationName: string) {
-    this.searchInfo
-      .next(locationName);
-  }
-
 }

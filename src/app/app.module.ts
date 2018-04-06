@@ -4,22 +4,23 @@ import { NgModule } from '@angular/core';
 //Ng-Bootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-//Components
+// Components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { WeatherComponent } from './components/weather/weather.component';
+import { WeatherItemComponent } from './components/weather/weather-item/weather-item.component';
 
-//Router
+// Router
 import { RouterModule, RouterOutlet, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
-//HTTP
+// HTTP
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-//FormsModule
+// FormsModule
 import { FormsModule } from '@angular/forms';
 
-//Service
+// Service
 import { WeatherService } from './weatherService/weather.service';
 
 const appRoutes: Routes = [
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     WeatherComponent,
+    WeatherItemComponent,
     PageNotFoundComponent
   ],
   imports: [

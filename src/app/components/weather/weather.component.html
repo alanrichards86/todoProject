@@ -1,31 +1,20 @@
 
 
 <div class="mainDiv">
-
   <div class="h1Div">
     <h1>  
       Weather Fun !
     </h1>
   </div>
-
   <div class="searchDiv">
     <div class="inputDiv"> 
       <form (ngSubmit)="onSubmit(input.value)">
         <label for="city"></label>
         <input id="city" class="form-control" [(ngModel)]="cityName" type="text" class="cityInput"
-        (click)="buttonStatus()" (input)="findLocation(input.value)" #input [ngModelOptions]="{standalone: true}">
+        (click)="buttonStatus()" #input [ngModelOptions]="{standalone: true}">
         <button type="submit" [disabled]=locationButtonStatus class="btn btn-primary getCity-Btn">Get City</button>
       </form>  
     </div>
-    <div class="displayDiv">
-      <ul class="weatherList">
-        <li>Country: {{country}}</li>
-        <li>CityName: {{city}}</li>
-        <li>Clouds: {{clouds}}</li>
-        <li>Population: {{population}}</li>
-      </ul>
-    </div>
+    <app-weather-item></app-weather-item>
   </div>
-
-
 </div>
